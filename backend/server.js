@@ -5,6 +5,7 @@ const app = express();
 
 const port = process.env.PORT || 4000;
 
+app.use(express.json());       //Build middleware for post request
 app.use("/api/contacts", require("./routes/contactRoutes"
 ));
 
