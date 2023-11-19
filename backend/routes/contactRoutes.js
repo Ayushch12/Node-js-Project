@@ -11,6 +11,10 @@ router.route("/").post((req,res)=>{
     res.status(200).json({ message: "Create a contact"})
   });
 
+  router.route("/:id").get((req,res)=>{
+    res.status(200).json({ message: `Update contact for ${req.params.id}`})
+  });
+
   //Define a put method -------
 router.route("/:id").put((req,res)=>{
     res.status(200).json({ message: `Update contact for ${req.params.id}`})
