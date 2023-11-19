@@ -12,10 +12,10 @@ router.route("/").get(getContacts);
 //Define a POST method -------
 router.route("/").post( CreateContact);
 
-//Define a GET:id method -------
+//Define a GET:id methodd -------
   router.route("/:id").get(  getContact);
 
-  //Define a PUT:id method -------
+  //Define a PUT:id method ----------------
 router.route("/:id").put( updateContact);
 
   //Define a DELETE:id method -------
