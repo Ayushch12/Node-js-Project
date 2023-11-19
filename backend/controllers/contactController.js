@@ -5,7 +5,8 @@ const Contact = require("../models/contactModel")
 //@route GET/api/contacts
 //@access public
 const getContacts = asyncHandler(async(req, res) => {
-  res.status(200).json({ message: "Get all contacts" });
+  const contacts = await Contact.find();     // Thsi is comming from the contactModel
+  res.status(200).json( contacts);
 });
 
 //@desc Create new contacts
