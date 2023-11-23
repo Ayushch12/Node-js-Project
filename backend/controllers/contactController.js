@@ -52,14 +52,20 @@ const updateContact = asyncHandler(async(req, res) => {
     {new: true}
   );
 
-  res.status(200).json({ message: `Update contact for ${req.params.id}` });
+  res.status(200).json(updateContact);
 });
 
 //@desc Delete contacts
 //@route DELETE/api/contacts/:id
 //@access public
 const deleteContact = asyncHandler(async(req, res) => {
-  res.status(200).json(updateContact);
+  const contact = await Contact.findById(req.params.id);
+  if(!contact){
+    res.status(404);
+    throw new Error("Contact not found");
+  }
+  await Contact.remove();
+  res.status(200).json(contact);
 });
 
 module.exports = {
@@ -69,3 +75,4 @@ module.exports = {
   deleteContact,
   updateContact,
 };
+
